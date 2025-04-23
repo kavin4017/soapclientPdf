@@ -17,7 +17,7 @@ public class SoapController {
 
     @GetMapping("/pdf")
     public ResponseEntity generatePdf(@RequestParam String val) throws Exception {
-        byte[] pdf = pdfClientService.getPdf("Hello");
+        byte[] pdf = pdfClientService.getPdf(val);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.setContentDispositionFormData("attachment", "requests.pdf");
